@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <!--* css file -->
+  <style>
+    :root{
+      --dark-color: #635bff;
+      --light-color: #80e9ff;
+    }
+    svg{
+      cursor: pointer;
+    }
+    #pink{
+      fill: var(--dark-color);
+    }
+    #green{
+      fill: var(--light-color);
+    }
+
+    #green1,#pink1,#pink2{
+      transition: all 1s ease;
+    }
+    #pink2{
+      transform: translateX(-100%);
+    }
+    svg:hover #green1{
+      transform: translateX(20%);
+    }
+    svg:hover #pink1{
+      transform: translateX(40%);
+      opacity: 0;
+    }
+    svg:hover #pink2{
+      transform: translateX(0%);
+    }
+  </style>
+</head>
+<body>
+  <!-- *svg created using figma -->
+<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="triangles" clip-path="url(#clip0)">
+    <g id="green">
+      <path id="green1"
+        d="M37 48.768C38.3333 49.5378 38.3333 51.4623 37 52.2321L9.25 68.2535C7.91666 69.0233 6.25 68.0611 6.25 66.5215L6.25 34.4785C6.25 32.9389 7.91667 31.9767 9.25 32.7465L37 48.768Z"
+        fill-opacity="0.7" />
+    </g>
+    <g id="pink">
+      <path id="pink1"
+        d="M49 48.768C50.3333 49.5378 50.3333 51.4623 49 52.2321L21.25 68.2535C19.9167 69.0233 18.25 68.0611 18.25 66.5215L18.25 34.4785C18.25 32.9389 19.9167 31.9767 21.25 32.7465L49 48.768Z"
+        fill-opacity="0.7" />
+      <path id="pink2"
+        d="M37 48.768C38.3333 49.5378 38.3333 51.4623 37 52.2321L9.25 68.2535C7.91666 69.0233 6.25 68.0611 6.25 66.5215L6.25 34.4785C6.25 32.9389 7.91667 31.9767 9.25 32.7465L37 48.768Z"
+        fill-opacity="0.7" />
+    </g>
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <rect width="120" height="100" fill="white" />
+    </clipPath>
+  </defs>
+</svg>
+<!-- * This is for changing color of the svg when clicked -->
+<script>
+  const svg = document.getElementById('triangles');
+  svg.onclick = (e)=>{
+    const colors = ['red','blue','green','orange','pink','purple'];
+    const rando = () =>
+      colors[Math.floor(Math.random()*colors.length)];
+      document.documentElement.style.cssText = `
+      --dark-color: ${rando()};
+      --light-color: ${rando()};
+      `
+  }
+</script>
+
+
+
+</body>
+</html>
